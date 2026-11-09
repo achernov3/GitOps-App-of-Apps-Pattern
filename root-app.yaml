@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: root-apps
-  namespace: argocd
+  namespace: default
 spec:
   project: default
   source:
@@ -11,11 +11,8 @@ spec:
     path: env/k3s # <-- Updated path
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: default
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-
-
-      
